@@ -1,0 +1,25 @@
+name: Detect event type
+
+# Déclenchement sur push ou pull_request
+on:
+  push:
+  pull_request:
+
+env:
+  PUSH_MESSAGE: "C'est un push !"
+  PR_MESSAGE: "C'est une pull request !"
+
+jobs:
+  on-push:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Affiche le message push
+        run: echo "${{ env.PUSH_MESSAGE }}"
+
+  on-pull-request:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Affiche le message pull request
+        run: echo "${{ env.PR_MESSAGE }}"
