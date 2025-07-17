@@ -1,0 +1,13 @@
+name: Afficher message si PR mergée
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  pr-merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Afficher un message si PR mergée
+        run: echo "La Pull Request a été mergée !"
