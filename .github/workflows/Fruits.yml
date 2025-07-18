@@ -1,0 +1,18 @@
+name: Pipeline fruits et noms
+
+on:
+  workflow_dispatch: # Exécution manuelle
+
+jobs:
+  combinaisons:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        fruit: [pomme, banane, orange, kiwi]
+        nom: [Michel, Alice, Sophie]
+      fail-fast: true # Arrête tous les jobs si un seul échoue
+
+    steps:
+      - name: Afficher la phrase pour chaque combinaison
+        run: echo "${{ matrix.nom }} mange une ${{
+          matrix.fruit }}, et il adore ça !"
