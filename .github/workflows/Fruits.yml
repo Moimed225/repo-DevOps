@@ -15,4 +15,4 @@ jobs:
     steps:
       - name: Afficher la phrase pour chaque combinaison
         run: echo "${{ matrix.nom }} mange une ${{
-          matrix.fruit }}, et il adore ça !"
+          matrix.fruit }}, et adore ça !"
